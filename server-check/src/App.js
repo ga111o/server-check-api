@@ -5,9 +5,11 @@ function App() {
   const [servers, setServers] = useState({});
   const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
+  const [deleteUrl, setDeleteUrl] = useState(""); // 삭제할 URL 상태 추가
+  const origin_url = "http://223.194.20.119:9973/";
 
   useEffect(() => {
-    fetch("http://172.21.203.60:9973/")
+    fetch(origin_url)
       .then((response) => response.json())
       .then((data) => setServers(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -20,9 +22,9 @@ function App() {
       return;
     }
 
-    const requestUrl = `http://172.21.203.60:9973/add?url=${encodeURIComponent(
-      url
-    )}${email ? `&mail=${encodeURIComponent(email)}` : ""}`;
+    const requestUrl = `${origin_url}add?url=${encodeURIComponent(url)}${
+      email ? `&mail=${encodeURIComponent(email)}` : ""
+    }`;
 
     fetch(requestUrl, { method: "POST" })
       .then((response) => {
@@ -38,6 +40,34 @@ function App() {
       .catch((error) => {
         console.error("Error submitting data:", error);
         alert("데이터 전송 중 오류가 발생했습니다.");
+      });
+  };
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    if (!deleteUrl) {
+      alert("삭제할 URL을 입력하세요.");
+      return;
+    }
+
+    const requestUrlDel = `${origin_url}del?url=${encodeURIComponent(
+      deleteUrl
+    )}`;
+
+    fetch(requestUrlDel, { method: "POST" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Delete Response:", data);
+        alert("데이터가 성공적으로 삭제되었습니다.");
+      })
+      .catch((error) => {
+        console.error("Error deleting data:", error);
+        alert("err: ", error);
       });
   };
 
@@ -63,6 +93,19 @@ function App() {
           />
         </div>
         <button type="submit">추가</button>
+      </form>
+      {/* 삭제 기능을 위한 입력 필드와 버튼 추가 */}
+      <form onSubmit={handleDelete}>
+        <div>
+          <label>삭제할 URL: </label>
+          <input
+            type="text"
+            value={deleteUrl}
+            onChange={(e) => setDeleteUrl(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">삭제</button>
       </form>
       <ul>
         {Object.keys(servers).map((key) => (
