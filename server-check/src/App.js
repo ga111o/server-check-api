@@ -7,9 +7,14 @@ function App() {
   const [email, setEmail] = useState("");
   const [deleteUrl, setDeleteUrl] = useState(""); // 삭제할 URL 상태 추가
   const origin_url = "http://223.194.20.119:9973/";
+  const cors_proxy = "https://cors-anywhere.herokuapp.com/";
 
   useEffect(() => {
-    fetch(origin_url)
+    fetch(`${cors_proxy}${origin_url}`, {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setServers(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -22,11 +27,16 @@ function App() {
       return;
     }
 
-    const requestUrl = `${origin_url}add?url=${encodeURIComponent(url)}${
-      email ? `&mail=${encodeURIComponent(email)}` : ""
-    }`;
+    const requestUrl = `${cors_proxy}${origin_url}add?url=${encodeURIComponent(
+      url
+    )}${email ? `&mail=${encodeURIComponent(email)}` : ""}`;
 
-    fetch(requestUrl, { method: "POST" })
+    fetch(requestUrl, {
+      method: "POST",
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,11 +60,16 @@ function App() {
       return;
     }
 
-    const requestUrlDel = `${origin_url}del?url=${encodeURIComponent(
+    const requestUrlDel = `${cors_proxy}${origin_url}del?url=${encodeURIComponent(
       deleteUrl
     )}`;
 
-    fetch(requestUrlDel, { method: "POST" })
+    fetch(requestUrlDel, {
+      method: "POST",
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -73,7 +88,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>서버 상태</h1>
+      <h1>Server Checker</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>URL: </label>
