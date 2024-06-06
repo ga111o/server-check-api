@@ -8,7 +8,7 @@
 
 .addPart {
   flex-direction: row;
-  width: 500px;
+  width: auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -16,7 +16,7 @@
 
 .delPart {
   flex-direction: row;
-  width: 500px;
+  width: auto;
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -29,7 +29,7 @@
 ul {
   list-style-type: none;
   padding: 0;
-  width: 500px;
+  width: auto;
 }
 
 .inputPart {
@@ -64,7 +64,7 @@ input:focus {
 
 button {
   padding: 10px 20px;
-  height: 60px;
+  height: auto;
   background-color: #66db6ac6;
   border-radius: 15px;
   color: #333;
@@ -106,4 +106,17 @@ li {
 .not-working {
   background-color: #f2dede;
   color: #a94442;
+}
+
+@media screen and (max-width: 510px) {
+  .addPart {
+    flex-direction: column;
+  }
+  .delPart {
+    flex-direction: column;
+  }
+
+  button {
+    margin-top: 5px;
+  }
 }
