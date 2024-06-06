@@ -89,39 +89,41 @@ function App() {
   return (
     <div className="App">
       <h1>Server Checker</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>URL: </label>
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Email(선택): </label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <button type="submit">추가</button>
-      </form>
-      {/* 삭제 기능을 위한 입력 필드와 버튼 추가 */}
-      <form onSubmit={handleDelete}>
-        <div>
-          <label>삭제할 URL: </label>
-          <input
-            type="text"
-            value={deleteUrl}
-            onChange={(e) => setDeleteUrl(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">삭제</button>
-      </form>
+      <div className="inputPart">
+        <form onSubmit={handleSubmit} className="addPart">
+          <div className="smallPart">
+            <label>URL: </label>
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              required
+            />
+          </div>
+          <div className="smallPart">
+            <label>Email(선택): </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <button type="submit">추가</button>
+        </form>
+        <form onSubmit={handleDelete} className="addPart">
+          <div>
+            <label>삭제할 URL: </label>
+            <br></br>
+            <input
+              type="text"
+              value={deleteUrl}
+              onChange={(e) => setDeleteUrl(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">삭제</button>
+        </form>
+      </div>
       <ul>
         {Object.keys(servers).map((key) => (
           <li
