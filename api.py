@@ -48,7 +48,7 @@ def add_url():
 
     return jsonify({"message": "URL added successfully", "data": urls[address]})
 
-@app.route('/del', methods=['GET'])
+@app.route('/del', methods=['GET', 'POST'])
 def delete_url():
     address = request.args.get('url')
 
