@@ -1,0 +1,7 @@
+{
+    "http://example.com": {
+        "url": "http://example.com",
+        "mail": "NULL",
+        "work": 1
+    }
+}
