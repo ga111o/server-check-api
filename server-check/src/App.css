@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.working {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.not-checked {
+  background-color: #fff7e8;
+  color: #ffab67;
+}
+
+.not-working {
+  background-color: #f2dede;
+  color: #a94442;
+}
