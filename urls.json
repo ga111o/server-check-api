@@ -1,24 +1,25 @@
 {
-    "1. manual": {
-        "1\uc2dc\uac04\ub9c8\ub2e4 url \uccb4\ud06c \ud6c4, \uc811\uc18d\uc774 \ub418\uc9c0 \uc54a\ub294\ub2e4\uba74 \uc785\ub825\ud55c \uc774\uba54\uc77c\ub85c \uba54\uc77c \uc804\uc1a1": "",
-        "\uc774\uba54\uc77c\uc740 \ud544\uc218\uac00 \uc544\ub2d8": ""
-    },
-    "2. how can i use": {
-        "show_all_urls": "/",
-        "add_url": "/add?url=<URL>&mail=<EMAIL>",
-        "delete_url": "/del?url=<URL>"
-    },
-    "http://example.com": {
-        "url": "http://example.com",
-        "mail": "NULL"
-    },
-    "http://test.com": {
-        "url": "http://test.com",
-        "mail": "NULL",
-        "work": 0
-    },
-    "http://asdfdf.com": {
-        "url": "http://asdfdf.com",
-        "mail": "NULL"
-    }
+  "1. manual": {
+    "1\uc2dc\uac04\ub9c8\ub2e4 url \uccb4\ud06c \ud6c4, \uc811\uc18d\uc774 \ub418\uc9c0 \uc54a\ub294\ub2e4\uba74 \uc785\ub825\ud55c \uc774\uba54\uc77c\ub85c \uba54\uc77c \uc804\uc1a1": "",
+    "\uc774\uba54\uc77c\uc740 \ud544\uc218\uac00 \uc544\ub2d8": ""
+  },
+  "2. how can i use": {
+    "show_all_urls": "/",
+    "add_url": "/add?url=<URL>&mail=<EMAIL>",
+    "delete_url": "/del?url=<URL>"
+  },
+  "http://example.com": {
+    "url": "http://example.com",
+    "mail": "NULL",
+    "work": 1
+  },
+  "http://test.com": {
+    "url": "http://test.com",
+    "mail": "NULL",
+    "work": 0
+  },
+  "http://asdfdf.com": {
+    "url": "http://asdfdf.com",
+    "mail": "NULL"
+  }
 }
