@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 import json
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 FILE_PATH = './urls.json'
 API_USAGE = {
     "1. manual": {
@@ -29,7 +32,7 @@ def write_urls(urls):
         data = {**API_USAGE, **urls}
         json.dump(data, file, indent=4)
 
-@app.route('/add', methods=['GET'])
+@app.route('/add', methods=['GET', 'POST'])
 def add_url():
     address = request.args.get('url')
     mail = request.args.get('mail')
