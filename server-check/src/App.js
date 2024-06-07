@@ -5,7 +5,7 @@ function App() {
   const [servers, setServers] = useState({});
   const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
-  const [deleteUrl, setDeleteUrl] = useState(""); // 삭제할 URL 상태 추가
+  const [deleteUrl, setDeleteUrl] = useState("");
   const origin_url = "http://223.194.20.119:9973/";
   const cors_proxy = "https://cors-anywhere.herokuapp.com/";
 
@@ -94,6 +94,7 @@ function App() {
           <div className="smallPart">
             <label>URL: </label>
             <input
+              placeholder="사설ip:port"
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
@@ -110,7 +111,7 @@ function App() {
           </div>
           <button type="submit">추가</button>
         </form>
-        <form onSubmit={handleDelete} className="addPart">
+        <form onSubmit={handleDelete} className="delPart">
           <div>
             <label>삭제할 URL: </label>
             <br></br>
