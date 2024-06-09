@@ -89,12 +89,40 @@ function App() {
   return (
     <div className="App">
       <h1>Server Checker</h1>
+      <div className="howToUse">
+        <p>
+          ssl 인증서 문제로 외부 proxy를 통해 간접적으로 접근하는 방법을
+          사용하고 있습니다.<br></br>proxy에 문제가 생길 경우 현재 페이지가
+          제대로 동작하지 않을 수 있습니다.
+        </p>
+        <p>아래와 같은 방법으로 직접적으로 추가할 수 있습니다.</p>
+        <div className="commands">
+          <div>
+            <p>&nbsp;&nbsp;추가</p>
+            <p className="howToUseCommand">
+              동방ip:9973/add?url=&lt;내부ip:port&gt;&mail=&lt;email&gt;
+            </p>
+          </div>
+          <div>
+            <p>&nbsp;&nbsp;제거</p>
+            <p className="howToUseCommand">
+              동방ip:9973/del?url=&lt;내부ip:port&gt;
+            </p>
+          </div>
+        </div>
+        <div className="commands222">
+          <div>
+            <p>&nbsp;&nbsp;확인</p>
+            <p className="howToUseCommand">동방ip:9973/</p>
+          </div>
+        </div>
+      </div>
       <div className="inputPart">
         <form onSubmit={handleSubmit} className="addPart">
           <div className="smallPart">
             <label>URL: </label>
             <input
-              placeholder="사설ip:port"
+              placeholder="내부ip:port"
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}

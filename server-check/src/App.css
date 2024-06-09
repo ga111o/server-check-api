@@ -24,6 +24,38 @@
 
 .smallPart {
   width: 200px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.commands {
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: -10px;
+}
+
+.commands222 {
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+
+.howToUseCommand {
+  transition: 0.3s ease;
+  width: auto;
+  background-color: #dddddd;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  margin: -15px 3px 0 3px;
+}
+.howToUseCommand:hover {
+  transition: 0.3s ease;
+  background-color: #dddddda0;
+  box-shadow: 6px 8px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
 }
 
 ul {
@@ -118,5 +150,8 @@ li {
 
   button {
     margin-top: 5px;
+  }
+  .commands {
+    flex-direction: column;
   }
 }
